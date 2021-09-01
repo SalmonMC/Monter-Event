@@ -1,0 +1,10 @@
+mobevent:
+  strongzombie:
+    health: 100
+    speed: 2
+    strength: 2
+    adult: true
+    helmet: DIAMOND_HELMET
+    leggings: DIAMOND_LEGGINGS
+    chestplate: DIAMOND_CHESTPLATE
+    boots: DIAMOND_BOOTS

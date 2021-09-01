@@ -1,0 +1,230 @@
+# Information
+#
+# Actions:
+#  - join_queue
+#  - leave_queue
+
+event_inventory:
+  name: "Monster evenement"
+  size: 54
+  slots:
+    blank_slots:
+      item: "GRAY_STAINED_GLASS_PANE"
+      amount: 1
+      name: ""
+    0:
+      item: "GREEN_STAINED_GLASS_PANE"
+      amount: 1
+      slot: 11
+      name: "&a&lKlik om mee te doen."
+      lore:
+        - "&8&m------------"
+        - "&7Elke wave die je verslaat"
+        - "&7krijg je de kans om weg te gaan."
+        - ""
+        - "&cAls je dood gaat in het evenement"
+        - "&cdan verlies je al je spullen!"
+        - "&8&m------------"
+      action: "join_queue"
+    1:
+      item: "GREEN_STAINED_GLASS_PANE"
+      amount: 1
+      slot: 12
+      name: "&a&lKlik om mee te doen."
+      lore:
+        - "&8&m------------"
+        - "&7Elke wave die je verslaat"
+        - "&7krijg je de kans om weg te gaan."
+        - ""
+        - "&cAls je dood gaat in het evenement"
+        - "&cdan verlies je al je spullen!"
+        - "&8&m------------"
+      action: "join_queue"
+    2:
+      item: "GREEN_STAINED_GLASS_PANE"
+      amount: 1
+      slot: 20
+      name: "&a&lKlik om mee te doen."
+      lore:
+        - "&8&m------------"
+        - "&7Elke wave die je verslaat"
+        - "&7krijg je de kans om weg te gaan."
+        - ""
+        - "&cAls je dood gaat in het evenement"
+        - "&cdan verlies je al je spullen!"
+        - "&8&m------------"
+      action: "join_queue"
+    3:
+      item: "GREEN_STAINED_GLASS_PANE"
+      amount: 1
+      slot: 21
+      name: "&a&lKlik om mee te doen."
+      lore:
+        - "&8&m------------"
+        - "&7Elke wave die je verslaat"
+        - "&7krijg je de kans om weg te gaan."
+        - ""
+        - "&cAls je dood gaat in het evenement"
+        - "&cdan verlies je al je spullen!"
+        - "&8&m------------"
+      action: "join_queue"
+    4:
+      item: "RED_STAINED_GLASS_PANE"
+      amount: 1
+      slot: 14
+      name: "&a&lKlik om mee te doen."
+      lore:
+        - "&8&m------------"
+        - "&7Elke wave die je verslaat"
+        - "&7krijg je de kans om weg te gaan."
+        - ""
+        - "&cAls je dood gaat in het evenement"
+        - "&cdan verlies je al je spullen!"
+        - "&8&m------------"
+      action: "leave_queue"
+    5:
+      item: "RED_STAINED_GLASS_PANE"
+      amount: 1
+      slot: 15
+      name: "&c&lKlik om te verlaten"
+      action: "leave_queue"
+    6:
+      item: "RED_STAINED_GLASS_PANE"
+      amount: 1
+      slot: 23
+      name: "&c&lKlik om te verlaten"
+      action: "leave_queue"
+    7:
+      item: "RED_STAINED_GLASS_PANE"
+      amount: 1
+      slot: 24
+      name: "&c&lKlik om te verlaten"
+      action: "leave_queue"
+    8:
+      item: "SKULL:0"
+      amount: 1
+      slot: 38
+      name: "&7Wachtrij: &cleeg"
+      takenName: "&7Wachtrij: &f%player%"
+      action: "queue_1"
+    9:
+      item: "SKULL:0"
+      amount: 1
+      slot: 39
+      name: "&7Wachtrij: &cleeg"
+      takenName: "&7Wachtrij: &f%player%"
+      action: "queue_2"
+    10:
+      item: "SKULL:0"
+      amount: 1
+      slot: 40
+      name: "&7Wachtrij: &cleeg"
+      takenName: "&7Wachtrij: &f%player%"
+      action: "queue_3"
+    11:
+      item: "SKULL:0"
+      amount: 1
+      slot: 41
+      name: "&7Wachtrij: &cleeg"
+      takenName: "&7Wachtrij: &f%player%"
+      action: "queue_4"
+    12:
+      item: "SKULL:0"
+      amount: 1
+      slot: 42
+      name: "&7Wachtrij: &cleeg"
+      takenName: "&7Wachtrij: &f%player%"
+      action: "queue_5"
+    13:
+      item: "PAPER"
+      amount: 1
+      slots: 1
+      name: "&7Informatie"
+      lore:
+        - "&8&m------------"
+        - "&7Status: %status%"
+        - "&7Wachtrij: &e%in_queue%&7/&e%max_queue%"
+        - "&8&m------------"
+        - "&7Elke wave die je verslaat"
+        - "&7krijg je de kans om weg te gaan."
+        - ""
+        - "&cAls je dood gaat in het evenement"
+        - "&cdan verlies je al je spullen!"
+        - "&8&m------------"
+
+next_wave_inventory:
+  name: "Wil je doorgaan?"
+  size: 54
+  slots:
+    blank_slots:
+      item: "GRAY_STAINED_GLASS_PANE"
+      amount: 1
+      name: ""
+    0:
+      item: "GREEN_STAINED_GLASS_PANE"
+      amount: 1
+      slot: 20
+      name: "&a&lKlik om door te gaan"
+      lore:
+        - "&8&m------------"
+        - "&cAls je dood gaat in het evenement"
+        - "&cdan verlies je al je spullen!"
+        - "&8&m------------"
+      action: "ready_next_wave"
+    1:
+      item: "GREEN_STAINED_GLASS_PANE"
+      amount: 1
+      slot: 21
+      name: "&a&lKlik om door te gaan"
+      lore:
+        - "&8&m------------"
+        - "&cAls je dood gaat in het evenement"
+        - "&cdan verlies je al je spullen!"
+        - "&8&m------------"
+      action: "ready_next_wave"
+    2:
+      item: "GREEN_STAINED_GLASS_PANE"
+      amount: 1
+      slot: 29
+      name: "&a&lKlik om door te gaan"
+      lore:
+        - "&8&m------------"
+        - "&cAls je dood gaat in het evenement"
+        - "&cdan verlies je al je spullen!"
+        - "&8&m------------"
+      action: "ready_next_wave"
+    3:
+      item: "GREEN_STAINED_GLASS_PANE"
+      amount: 1
+      slot: 30
+      name: "&a&lKlik om door te gaan"
+      lore:
+        - "&8&m------------"
+        - "&cAls je dood gaat in het evenement"
+        - "&cdan verlies je al je spullen!"
+        - "&8&m------------"
+      action: "ready_next_wave"
+    4:
+      item: "RED_STAINED_GLASS_PANE"
+      amount: 1
+      slot: 23
+      name: "&c&lKlik om te stoppen"
+      action: "leave_event"
+    5:
+      item: "RED_STAINED_GLASS_PANE"
+      amount: 1
+      slot: 24
+      name: "&c&lKlik om te stoppen"
+      action: "leave_event"
+    6:
+      item: "RED_STAINED_GLASS_PANE"
+      amount: 1
+      slot: 32
+      name: "&c&lKlik om te stoppen"
+      action: "leave_event"
+    7:
+      item: "RED_STAINED_GLASS_PANE"
+      amount: 1
+      slot: 33
+      name: "&c&lKlik om te stoppen"
+      action: "leave_event"

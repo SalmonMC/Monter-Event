@@ -1,0 +1,26 @@
+event:
+  # Max players allowed to enter the event / queue
+  max-players: 2
+
+  # In seconds
+  time-start-event: 10
+  wave-deciding-time: 5
+  spawn-wave-start-counting-down-from: 3
+  start-event-start-count-down-from: 5
+
+  #in minutes
+  event-cooldown: 60
+  announce-reminder-every: 15
+
+  announce-event-finished-in-chat: true
+  announce-end-cooldown-in-chat: false
+  prefix: "&c&lAmaze&f&lMC » &r"
+
+  use-titles: true
+  title-header: "&c&lMonster &f&lEvenement"
+
+  drop-items-on-death: false
+  broadcast-join-message: true
+  announce-reminder: true
+
+  override-worldguard-world: "none"

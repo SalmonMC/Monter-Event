@@ -1,0 +1,38 @@
+# This file is used to spawn the waves
+#
+# Completion is in % percentages.
+# How much you have to kill to start the next wave.
+#
+# Example:
+# <Entity>:<Amount>:<Time_till_spawn>
+
+mobevent:
+  waves:
+    0:
+      time_to_start: 3
+      wave_spawn_messages: true
+      completion: 100
+      entities:
+        - "ZOMBIE:3:0"
+      rewards:
+        - "iron_ingot;10"
+        - "cmd;give %player% minecraft:acacia_boat 3;$100"
+    1:
+      time_to_start: 7
+      wave_spawn_messages: true
+      completion: 100
+      entities:
+        - "SKELETON:5:0"
+      rewards:
+        - "gold_ingot;10"
+        - "cmd;give %player% minecraft:dirt 50;50 dirt"
+    2:
+      time_to_start: 10
+      wave_spawn_messages: false
+      completion: 100
+      entities:
+        - "CHICKEN:2:0"
+      rewards:
+        - "diamond;23"
+        - "diamond_helmet;1"
+        - "leather_helmet;1"

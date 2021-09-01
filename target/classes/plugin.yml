@@ -1,0 +1,12 @@
+name: AmazeMobEvent
+version: 0.1.0
+api-version: 1.17
+author: OriginalHoly
+main: me.AmazeMC.mobevent.MobEvent
+
+commands:
+  event:
+    description: Opens the event GUI.
+  adminevent:
+    aliases: [aevent, admevent]
+    description: Used for admin commands.
