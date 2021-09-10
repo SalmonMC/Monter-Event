@@ -120,17 +120,7 @@ public class GUIUtils {
                         String[] itemMeta = MobEvent.getInstance().getEventGUIFile().getFile().getString(id + ".slots." + slot + ".action").split("_");
                         int index = Integer.parseInt(itemMeta[1]) - 1;
 
-                        if (MobEvent.getInstance().getEventManager().hasStarted()) {
-                            int j = 0;
-                            for (Player eP : MobEvent.getInstance().getEventManager().getList().keySet()) {
-                                if (j == index) {
-                                    owner = eP.getName();
-                                }
-
-                                j++;
-                            }
-                        }
-                        else if (MobEvent.getInstance().getQueueManager().getCount() >= Integer.parseInt(itemMeta[1])) {
+                        if (MobEvent.getInstance().getQueueManager().getCount() >= Integer.parseInt(itemMeta[1])) {
                             owner = MobEvent.getInstance().getQueueManager().get(index).getName();
 
                             if (MobEvent.getInstance().getEventGUIFile().getFile().get(id + ".slots." + slot + ".takenName") != null) {
