@@ -9,17 +9,25 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 
 public class EventListener implements Listener {
 
     @EventHandler
     public void onPerformCommandsEvent(PlayerCommandPreprocessEvent e) {
-        if (MobEvent.getInstance().getQueueManager().exists(e.getPlayer())) {
+        if (MobEvent.getInstance().getEventManager().exists(e.getPlayer())) {
             if (!Perms.isAuthorized(e.getPlayer(), "event.bypass.command")) {
                 e.getPlayer().sendMessage(ChatUtils.format(MobEvent.getInstance()._PREFIX + Messages.COMMANDS_NOT_ALLOWED.get())
                         .replace("%command%", e.getMessage()));
                 e.setCancelled(true);
             }
+        }
+    }
+
+    @EventHandler
+    public void onPlayerLeaveEvent(PlayerQuitEvent e) {
+        if (MobEvent.getInstance().getEventManager().exists(e.getPlayer())) {
+            MobEvent.getInstance().getEventManager().kickPlayer(e.getPlayer(), false);
         }
     }
 
