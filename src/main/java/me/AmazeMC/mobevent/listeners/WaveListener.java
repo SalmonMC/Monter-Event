@@ -85,15 +85,20 @@ public class WaveListener implements Listener {
                 e.setCancelled(true);
 
                 Creature creature = (Creature) e.getEntity();
-                creature.setTarget(MobEvent.getInstance().getEventManager().getRandomPlayer());
+//                creature.setTarget(MobEvent.getInstance().getEventManager().getRandomPlayer());
             }
         }
     }
 
     @EventHandler (priority = EventPriority.HIGHEST)
     public void onCreatureSpawnEvent(CreatureSpawnEvent e) {
-        if (e.getEntity().getWorld().getName().equalsIgnoreCase(MobEvent.getInstance().getConfig().getString("event.override-worldguard-world"))) {
-            e.setCancelled(false);
+//        if (e.getEntity().getWorld().getName().equalsIgnoreCase(MobEvent.getInstance().getConfig().getString("event.override-worldguard-world"))) {
+            new BukkitRunnable() {
+                @Override
+                public void run() {
+                    Bukkit.getServer().getWorld(e.getEntity().getWorld().getName()).spawnEntity(e.getLocation(), e.getEntityType());
+                }
+            }.runTaskLater(MobEvent.getInstance(),  1);
         }
-    }
+//    }
 }

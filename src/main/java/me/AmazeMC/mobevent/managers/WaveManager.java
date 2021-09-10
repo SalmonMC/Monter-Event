@@ -1,12 +1,14 @@
 package me.AmazeMC.mobevent.managers;
 
 import me.AmazeMC.mobevent.MobEvent;
-import me.AmazeMC.mobevent.customentities.CraftZombie;
+import me.AmazeMC.mobevent.customentities.CraftEntity;
 import me.AmazeMC.mobevent.filemanager.messages.Messages;
 import me.AmazeMC.mobevent.library.ConfigReader;
 import me.AmazeMC.mobevent.utils.ChatUtils;
 import me.AmazeMC.mobevent.utils.GUIUtils;
 import me.AmazeMC.mobevent.utils.NumberUtils;
+import net.minecraft.world.entity.EntityCreature;
+import net.minecraft.world.entity.EntityTypes;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.attribute.Attribute;
@@ -107,6 +109,9 @@ public class WaveManager {
                             //                        .setSpeed(5)
                             //                        .setStrength(10)
                             //                        .build();
+
+//                            EntityTypes<? extends EntityCreature> type = (EntityTypes<? extends EntityCreature>) ent.geth
+//                            CraftEntity ent = new CraftEntity()
 
                             ent.setMetadata("isEventMob", new FixedMetadataValue(MobEvent.getInstance(), true));
 

@@ -9,30 +9,44 @@
 mobevent:
   waves:
     0:
-      time_to_start: 3
+      time_to_start: 5
       wave_spawn_messages: true
       completion: 100
       entities:
-        - "ZOMBIE:3:0"
+        - ZOMBIE:20:0
+        - ZOMBIE:20:2
+        - ZOMBIE:20:4
+        - ZOMBIE:20:6
+        - ZOMBIE:20:8
+        - ZOMBIE:20:10
       rewards:
-        - "iron_ingot;10"
-        - "cmd;give %player% minecraft:acacia_boat 3;$100"
+        - iron_ingot;10
+        - cmd;eco give %player% 50;$50
     1:
-      time_to_start: 7
+      time_to_start: 5
       wave_spawn_messages: true
       completion: 100
       entities:
-        - "SKELETON:5:0"
+        - SKELETON:10:0
+        - ZOMBIE:30:2
+        - ZOMBIFIED_PIGLIN:10:4
+        - ZOMBIFIED_PIGLIN:10:6
       rewards:
-        - "gold_ingot;10"
-        - "cmd;give %player% minecraft:dirt 50;50 dirt"
+        - iron_ingot;10
+        - gold_ingot;20
+        - cmd;eco give %player% 50;$50
     2:
-      time_to_start: 10
-      wave_spawn_messages: false
+      time_to_start: 5
+      wave_spawn_messages: true
       completion: 100
       entities:
-        - "CHICKEN:2:0"
+        - ZOMBIFIED_PIGLIN:15:0
+        - HOGLIN:10:2
+        - ZOMBIFIED_PIGLIN:15:4
+        - HOGLIN:10:4
+        - PIGLIN_BRUTE:1:6
       rewards:
-        - "diamond;23"
-        - "diamond_helmet;1"
-        - "leather_helmet;1"
+        - iron_ingot;10
+        - gold_ingot;20
+        - diamond;1
+        - cmd;eco give %player% 50;$50
