@@ -18,6 +18,10 @@ public class MonsterManager {
         task = new BukkitRunnable() {
             @Override
             public void run() {
+                if (!MobEvent.getInstance().getEventManager().hasStarted()) {
+                    cancel();
+                    return;
+                }
                 for (Entity ent : MobEvent.getInstance().getWaveManager().getEntities()) {
                     Location minLoc = CuboidUtils.getLocation("mobevent.region-locations.min");
                     Location maxLoc = CuboidUtils.getLocation("mobevent.region-locations.max");

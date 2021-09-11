@@ -59,6 +59,8 @@ public enum Messages {
     REWARDS_GIVE_LIST("rewards-give-list"),
     BROADCAST_JOIN_MESSAGE("broadcast-join-message"),
     REMINDER_ANNOUNCE("reminder-announce"),
+    EVENT_RELOADED("event-reloaded"),
+    EVENT_RELOADED_QUEUE("event-reloaded-queue"),
 
     RELOADED_FILES("reloaded-files"),
     NO_PERMISSION("no-permission"),

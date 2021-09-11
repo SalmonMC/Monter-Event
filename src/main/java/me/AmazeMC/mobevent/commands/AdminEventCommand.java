@@ -38,6 +38,20 @@ public class AdminEventCommand implements CommandExecutor {
                     return true;
                 }
                 FileManager.reloadAll();
+
+                for (Player p : MobEvent.getInstance().getEventManager().getList().keySet()) {
+                    p.sendMessage(ChatUtils.format(MobEvent.getInstance()._PREFIX + tMessages.EVENT_RELOADED.get()));
+                }
+
+                for (Player p : MobEvent.getInstance().getQueueManager().getList()) {
+                    p.sendMessage(ChatUtils.format(MobEvent.getInstance()._PREFIX + Messages.EVENT_RELOADED_QUEUE.get()));
+                }
+
+                MobEvent.getInstance().getQueueManager().clear();
+                MobEvent.getInstance().getEventManager().forceStop(true);
+                MobEvent.getInstance().getWaveManager().reset();
+                MobEvent.getInstance().getMonsterManager().stop();
+
                 sender.sendMessage(ChatUtils.format(MobEvent.getInstance()._PREFIX + Messages.RELOADED_FILES.get()));
             }
             else if (args[0].equalsIgnoreCase("setup")) {
