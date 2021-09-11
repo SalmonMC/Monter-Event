@@ -32,6 +32,7 @@ public class MobEvent extends JavaPlugin {
     private RewardManager rewardManager;
     private CooldownManager cooldownManager;
     private ReminderManager reminderManager;
+    private MonsterManager monsterManager;
 
     /**
      * Executed when plugin is enabled
@@ -113,6 +114,7 @@ public class MobEvent extends JavaPlugin {
         rewardManager = new RewardManager();
         cooldownManager = new CooldownManager();
         reminderManager = new ReminderManager();
+        monsterManager = new MonsterManager();
     }
 
     /**
@@ -191,12 +193,18 @@ public class MobEvent extends JavaPlugin {
         return cooldownManager;
     }
 
-
     /**
      * Constructor for ReminderManager
      */
     public ReminderManager getReminderManager() {
         return reminderManager;
+    }
+
+    /**
+     * Constructor for MonsterManager
+     */
+    public MonsterManager getMonsterManager() {
+        return monsterManager;
     }
 
     /**

@@ -20,6 +20,8 @@ public enum Messages {
     STARTED_SETUP("started-setup"),
     NEXT_PHASE_PLAYER("next-phase-player"),
     NEXT_PHASE_MOB("next-phase-mob"),
+    NEXT_PHASE_REGION_1("next-phase-region-1"),
+    NEXT_PHASE_REGION_2("next-phase-region-2"),
     PLAYER_SETUP_MODE("player-setup-mode"),
     EVENT_FORCESTART_FAILED("event-forcestart-failed"),
     EVENT_FORCESTOP_FAILED("event-forcestop-failed"),

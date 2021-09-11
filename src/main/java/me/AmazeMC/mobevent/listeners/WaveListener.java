@@ -7,9 +7,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Creature;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.event.entity.EntityDeathEvent;
 import org.bukkit.event.entity.EntityTargetEvent;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -85,20 +83,8 @@ public class WaveListener implements Listener {
                 e.setCancelled(true);
 
                 Creature creature = (Creature) e.getEntity();
-//                creature.setTarget(MobEvent.getInstance().getEventManager().getRandomPlayer());
+                creature.setTarget(MobEvent.getInstance().getEventManager().getRandomPlayer());
             }
         }
     }
-
-    @EventHandler (priority = EventPriority.HIGHEST)
-    public void onCreatureSpawnEvent(CreatureSpawnEvent e) {
-//        if (e.getEntity().getWorld().getName().equalsIgnoreCase(MobEvent.getInstance().getConfig().getString("event.override-worldguard-world"))) {
-            new BukkitRunnable() {
-                @Override
-                public void run() {
-                    Bukkit.getServer().getWorld(e.getEntity().getWorld().getName()).spawnEntity(e.getLocation(), e.getEntityType());
-                }
-            }.runTaskLater(MobEvent.getInstance(),  1);
-        }
-//    }
 }

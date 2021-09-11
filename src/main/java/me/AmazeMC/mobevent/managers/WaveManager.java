@@ -1,21 +1,15 @@
 package me.AmazeMC.mobevent.managers;
 
 import me.AmazeMC.mobevent.MobEvent;
-import me.AmazeMC.mobevent.customentities.CraftEntity;
 import me.AmazeMC.mobevent.filemanager.messages.Messages;
 import me.AmazeMC.mobevent.library.ConfigReader;
 import me.AmazeMC.mobevent.utils.ChatUtils;
 import me.AmazeMC.mobevent.utils.GUIUtils;
 import me.AmazeMC.mobevent.utils.NumberUtils;
-import net.minecraft.world.entity.EntityCreature;
-import net.minecraft.world.entity.EntityTypes;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.attribute.Attribute;
-import org.bukkit.entity.Creature;
-import org.bukkit.entity.Entity;
-import org.bukkit.entity.EntityType;
-import org.bukkit.entity.Player;
+import org.bukkit.entity.*;
 import org.bukkit.metadata.FixedMetadataValue;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -110,10 +104,19 @@ public class WaveManager {
                             //                        .setStrength(10)
                             //                        .build();
 
-//                            EntityTypes<? extends EntityCreature> type = (EntityTypes<? extends EntityCreature>) ent.geth
-//                            CraftEntity ent = new CraftEntity()
-
                             ent.setMetadata("isEventMob", new FixedMetadataValue(MobEvent.getInstance(), true));
+
+                            ent.setCustomNameVisible(true);
+                            ent.setPersistent(true);
+
+                            if (ent.getType().getName().equalsIgnoreCase("PIGLIN_BRUTE")) {
+                                PiglinBrute brute = (PiglinBrute) ent;
+                                brute.setImmuneToZombification(true);
+                            }
+                            else if (ent.getType().getName().equalsIgnoreCase("HOGLIN")) {
+                                Hoglin hoglin = (Hoglin) ent;
+                                hoglin.setImmuneToZombification(true);
+                            }
 
                             Creature creature = (Creature) ent;
                             creature.setTarget(MobEvent.getInstance().getEventManager().getRandomPlayer());

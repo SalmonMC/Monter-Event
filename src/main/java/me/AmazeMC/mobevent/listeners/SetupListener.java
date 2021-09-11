@@ -34,48 +34,58 @@ public class SetupListener implements Listener {
 
         e.setCancelled(true);
 
-        // Player phase
-        if (setupManager.getPhase(e.getPlayer()) == 0) {
-            if (e.getAction() == Action.LEFT_CLICK_BLOCK) {
-                addSpawnpoint("player-spawnpoints", i++, e.getClickedBlock().getLocation(), e.getPlayer());
+        if (e.getAction() == Action.LEFT_CLICK_BLOCK) {
+            // Player phase
+            if (setupManager.getPhase(e.getPlayer()) == 0) {
+                addSpawnpoint("player-spawnpoints", String.valueOf(i++), e.getClickedBlock().getLocation(), e.getPlayer());
                 return;
             }
-            if (e.getAction() == Action.RIGHT_CLICK_BLOCK || e.getAction() == Action.RIGHT_CLICK_AIR) {
-                if (i == 0) {
-                    e.getPlayer().sendMessage(ChatUtils.format(MobEvent.getInstance()._PREFIX + Messages.NO_SPAWN_SELECTED.get()));
-                    return;
-                } else {
-                    i = 0;
+
+            // Mob phase
+            if (setupManager.getPhase(e.getPlayer()) == 1) {
+                addSpawnpoint("mob-spawnpoints", String.valueOf(i++), e.getClickedBlock().getLocation(), e.getPlayer());
+                return;
+            }
+
+            // Region phase 1
+            if (setupManager.getPhase(e.getPlayer()) == 2 || setupManager.getPhase(e.getPlayer()) == 3) {
+                i = 1;
+                addSpawnpoint("region-locations",
+                        (setupManager.getPhase(e.getPlayer()) == 2) ? "min" : "max",
+                        e.getClickedBlock().getLocation(), e.getPlayer());
+                return;
+            }
+        }
+        if (e.getAction() == Action.RIGHT_CLICK_BLOCK || e.getAction() == Action.RIGHT_CLICK_AIR) {
+            if (i == 0) {
+                e.getPlayer().sendMessage(ChatUtils.format(MobEvent.getInstance()._PREFIX + Messages.NO_SPAWN_SELECTED.get()));
+                return;
+            } else {
+                i = 0;
+
+                if (setupManager.getPhase(e.getPlayer()) == 0) {
                     setupManager.nextPhase(e.getPlayer());
                     e.getPlayer().sendMessage(ChatUtils.format(MobEvent.getInstance()._PREFIX + Messages.NEXT_PHASE_MOB.get()));
                 }
-                return;
-            }
-            return;
-        }
-
-        // Mob phase
-        else if (setupManager.getPhase(e.getPlayer()) == 1) {
-            if (e.getAction() == Action.LEFT_CLICK_BLOCK) {
-                addSpawnpoint("mob-spawnpoints", i++, e.getClickedBlock().getLocation(), e.getPlayer());
-                return;
-            }
-            if (e.getAction() == Action.RIGHT_CLICK_BLOCK || e.getAction() == Action.RIGHT_CLICK_AIR) {
-                if (i == 0) {
-                    e.getPlayer().sendMessage(ChatUtils.format(MobEvent.getInstance()._PREFIX + Messages.NO_SPAWN_SELECTED.get()));
-                    return;
-                } else {
-                    i = 0;
+                else if (setupManager.getPhase(e.getPlayer()) == 1) {
+                    setupManager.nextPhase(e.getPlayer());
+                    e.getPlayer().sendMessage(ChatUtils.format(MobEvent.getInstance()._PREFIX + Messages.NEXT_PHASE_REGION_1.get()));
+                }
+                else if (setupManager.getPhase(e.getPlayer()) == 2) {
+                    setupManager.nextPhase(e.getPlayer());
+                    e.getPlayer().sendMessage(ChatUtils.format(MobEvent.getInstance()._PREFIX + Messages.NEXT_PHASE_REGION_2.get()));
+                }
+                else if (setupManager.getPhase(e.getPlayer()) == 3) {
                     setupManager.remove(e.getPlayer());
                     e.getPlayer().sendMessage(ChatUtils.format(MobEvent.getInstance()._PREFIX + Messages.FINISHED_SETUP.get()));
                 }
-                return;
             }
-
+            return;
         }
+        return;
     }
 
-    private void addSpawnpoint(String path, int i, Location loc, Player p) {
+    private void addSpawnpoint(String path, String i, Location loc, Player p) {
         DataFile dataFile = MobEvent.getInstance().getDataFile();
 
         dataFile.getFile().set("mobevent." + path + "." + i + ".world", loc.getWorld().getName());

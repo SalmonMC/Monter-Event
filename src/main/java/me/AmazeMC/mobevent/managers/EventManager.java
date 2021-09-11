@@ -189,6 +189,7 @@ public class EventManager {
 
         MobEvent.getInstance().getQueueManager().clear();
         MobEvent.getInstance().getWaveManager().start(0);
+        MobEvent.getInstance().getMonsterManager().start();
     }
 
     /**
@@ -199,6 +200,7 @@ public class EventManager {
         MobEvent.getInstance().getCooldownManager().startCooldown();
         teleportPlayersBack(giveRewards);
         event.clear();
+        MobEvent.getInstance().getMonsterManager().stop();
     }
 
     /**
